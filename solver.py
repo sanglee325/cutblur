@@ -183,5 +183,9 @@ class Solver():
 
     def save(self, step):
         os.makedirs(self.opt.ckpt_root, exist_ok=True)
+        # save current best with step number
         save_path = os.path.join(self.opt.ckpt_root, str(step)+".pt")
+        torch.save(self.net.state_dict(), save_path)
+        # overwrite best
+        save_path = os.path.join(self.opt.ckpt_root, "best.pt")
         torch.save(self.net.state_dict(), save_path)
