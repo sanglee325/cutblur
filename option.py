@@ -103,19 +103,12 @@ def make_template(opt):
 
     # default augmentation policies
     if opt.use_moa:
-        
         opt.augs = ["blend", "rgb", "mixup", "cutout", "cutmix", "cutmixup", "cutblur"]
         opt.prob = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
         opt.alpha = [0.6, 1.0, 1.2, 0.001, 0.7, 0.7, 0.7]
         opt.aux_prob, opt.aux_alpha = 1.0, 1.2
         opt.mix_p = None
-        '''
-        opt.augs = ["cutblur"]
-        opt.prob = [1.0]
-        opt.alpha = [0.7]
-        opt.aux_prob, opt.aux_alpha = 1.0, 1.2
-        opt.mix_p = None
-        '''
+
         if "RealSR" in opt.dataset:
             opt.mix_p = [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4]
 
